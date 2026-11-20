@@ -33,16 +33,16 @@ This repository walks through two different methods of recovering a password fro
 **Tools:** John the Ripper (jumbo build), Johnny GUI
 
 ![Johnny settings](screenshots/01-johnny-settings.png)
-*Johnny pointed at the John the Ripper executable.*
+*Johnny → Settings, pointing to `john.exe` (John the Ripper 1.9.0-jumbo-1 OMP detected).*
 
 ![Johnny cracked](screenshots/02-johnny-cracked.png)
-*Attack complete — 100% (1/1 cracked).*
+*Johnny → Passwords: hash cracked, password recovered as `good-luck` — 100% (1/1 cracked, 0 left), format = PDF.*
 
 ![Flag 1](screenshots/03-flag-pdf1.png)
-*Flag captured after unlocking "My Locked PDF1.pdf".*
+*"My Locked PDF1.pdf" opened — Flag 1: `nw{cybersecurity_flag_captured_2608}`.*
 
 ![Flag 2](screenshots/04-flag-pdf3.png)
-*Flag captured after unlocking "My Locked PDF3.pdf".*
+*"My Locked PDF3.pdf" opened — Flag: `nw{networkwalks_flag_260821_1}`.*
 
 ---
 
@@ -56,13 +56,13 @@ This repository walks through two different methods of recovering a password fro
 **Tools:** [Hash Calculator](https://networkwalks.com/hash-calculator/) · [Password Cracker](https://networkwalks.com/password-cracker/)
 
 ![Hash calculator](screenshots/05-hash-calculator.png)
-*Encrypted PDF parsed locally, `$pdf$` hash extracted.*
+*Hash Calculator → PDF tab: "My Locked PDF1.pdf" (266.9 KB) parsed locally, `$pdf$` hash extracted.*
 
 ![Password cracker ready](screenshots/06-password-cracker-ready.png)
-*Hash loaded, built-in wordlist selected, ready to crack.*
+*Password Cracker: extracted hash pasted in, built-in list (100 passwords) active, ready to run.*
 
 ![Password cracker success](screenshots/07-password-cracker-success.png)
-*Match found — password recovered: `password1`.*
+*Attack finished (91/100 tried, 91%) — match found: password recovered as `password1`.*
 
 ---
 
