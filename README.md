@@ -38,28 +38,28 @@ Both methods successfully cracked the target PDF password, reinforcing the impor
 
 ## 📸 Screenshots
 
-| # | Description |
-|---|---|
-| 1 | Johnny settings page, pointing to the John the Ripper executable |
-| 2 | Johnny password list showing the cracked hash — 100% complete, 1/1 cracked |
-| 3 | Captured flag #1 after unlocking "My Locked PDF1.pdf" |
-| 4 | Captured flag #2 after unlocking "My Locked PDF3.pdf" |
-| 5 | Networkwalks Hash Calculator — crackable `$pdf$` hash extracted locally |
-| 6 | Networkwalks Password Cracker — hash pasted in, ready to run against the built-in wordlist |
-| 7 | Networkwalks Password Cracker — password cracked successfully (`password1`) |
+**Johnny settings — pointing to the John the Ripper executable**
+![Johnny settings](screenshots/01-johnny-settings.png)
 
-```
-screenshots/
-├── 01-johnny-settings.png
-├── 02-johnny-cracked.png
-├── 03-flag-pdf1.png
-├── 04-flag-pdf3.png
-├── 05-hash-calculator.png
-├── 06-password-cracker-ready.png
-└── 07-password-cracker-success.png
-```
+**Johnny — hash cracked, 100% complete (1/1)**
+![Johnny cracked](screenshots/02-johnny-cracked.png)
 
-> Rename your screenshots to match the list above and drop them into a `screenshots/` folder in the repo root so the table and links resolve correctly.
+**Captured flag #1 — "My Locked PDF1.pdf" unlocked**
+![Flag 1](screenshots/03-flag-pdf1.png)
+
+**Captured flag #2 — "My Locked PDF3.pdf" unlocked**
+![Flag 2](screenshots/04-flag-pdf3.png)
+
+**Networkwalks Hash Calculator — crackable `$pdf$` hash extracted locally**
+![Hash calculator](screenshots/05-hash-calculator.png)
+
+**Networkwalks Password Cracker — hash loaded, ready to run**
+![Password cracker ready](screenshots/06-password-cracker-ready.png)
+
+**Networkwalks Password Cracker — password cracked successfully (`password1`)**
+![Password cracker success](screenshots/07-password-cracker-success.png)
+
+> Create a `screenshots/` folder in the repo root and upload the 7 PNGs with the exact filenames above so the images render correctly.
 
 ## 🙏 Acknowledgements
 
@@ -69,4 +69,3 @@ screenshots/
 ---
 
 *Part of an ongoing Cybersecurity & Ethical Hacking internship series. More modules to follow.*
-
