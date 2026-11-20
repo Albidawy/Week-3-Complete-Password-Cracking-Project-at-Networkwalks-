@@ -1,70 +1,86 @@
-# PDF Password Cracking — Dictionary Attack Lab
+# 🔐 PDF Password Cracking — Dictionary Attack Lab
 
-Week 3 project from my Cybersecurity & Ethical Hacking internship at **Networkwalks Academy**. This repo documents a hands-on exploration of password-protected PDF cracking using two different approaches: a classic offline tool (John the Ripper) and a browser-based dictionary attack tool.
+**Week 3 project — Cybersecurity & Ethical Hacking Internship @ Networkwalks Academy**
 
-## 📋 Overview
+This repository walks through two different methods of recovering a password from an encrypted PDF file: a dedicated offline cracking tool (John the Ripper) and a lightweight browser-based tool that mirrors the same underlying logic. The objective was to understand how password hashes are extracted and cracked, and to compare a professional-grade tool against a simplified educational one.
 
-The goal was to understand how password hashes are extracted from encrypted files and how dictionary attacks recover the original password, comparing a professional security tool against a simplified educational tool that mimics the same logic.
+---
 
-## 🧩 Module 1: John the Ripper + Johnny (GUI)
+## 🗂️ Project Structure
 
-- Extracted the password hash from an encrypted PDF (`$pdf$` format, pdf2john-compatible)
-- Loaded the hash into **Johnny**, the GUI front-end for John the Ripper
-- Ran a dictionary/wordlist attack against the hash
-- Successfully recovered the password and unlocked the PDF
+```
+.
+├── README.md
+└── screenshots/
+    ├── 01-johnny-settings.png
+    ├── 02-johnny-cracked.png
+    ├── 03-flag-pdf1.png
+    ├── 04-flag-pdf3.png
+    ├── 05-hash-calculator.png
+    ├── 06-password-cracker-ready.png
+    └── 07-password-cracker-success.png
+```
 
-**Tools used:** John the Ripper (jumbo build), Johnny GUI
+---
 
-## 🧩 Module 2: Networkwalks Hash Calculator & Password Cracker
+## 🧩 Module 1 — John the Ripper & Johnny (GUI)
 
-- Used the **Hash Calculator** tool to parse the PDF and extract a crackable `$pdf$` hash directly in-browser (no upload, parsed locally)
-- Pasted the extracted hash into the **Password Cracker** tool
-- Ran the built-in wordlist (100 passwords) against the hash
-- Tool hashed each candidate password and compared it against the target hash until a match was found
-- Password recovered: cracked successfully and used to unlock the PDF
+1. Extracted the password hash from an encrypted PDF into `pdf2john`/hashcat-compatible format (`$pdf$...`)
+2. Pointed **Johnny** (the GUI front-end for John the Ripper) to the John executable
+3. Loaded the hash and ran a dictionary/wordlist attack
+4. Password recovered and the PDF successfully unlocked
 
-**Tools used:** [networkwalks.com/hash-calculator](https://networkwalks.com/hash-calculator/), [networkwalks.com/password-cracker](https://networkwalks.com/password-cracker/)
+**Tools:** John the Ripper (jumbo build), Johnny GUI
 
-## 🔑 Key Concepts
+![Johnny settings](screenshots/01-johnny-settings.png)
+*Johnny pointed at the John the Ripper executable.*
 
-- How PDF encryption hashes are structured and extracted
-- Dictionary attacks vs. brute-force attacks
-- Why weak/common passwords (e.g., from top-100 password lists) are cracked almost instantly
-- Comparing a production-grade tool (John the Ripper) with a lightweight educational equivalent
+![Johnny cracked](screenshots/02-johnny-cracked.png)
+*Attack complete — 100% (1/1 cracked).*
+
+![Flag 1](screenshots/03-flag-pdf1.png)
+*Flag captured after unlocking "My Locked PDF1.pdf".*
+
+![Flag 2](screenshots/04-flag-pdf3.png)
+*Flag captured after unlocking "My Locked PDF3.pdf".*
+
+---
+
+## 🧩 Module 2 — Networkwalks Hash Calculator & Password Cracker
+
+1. Uploaded the encrypted PDF to the **Hash Calculator** (parsed entirely client-side — nothing is uploaded to a server) to extract the crackable `$pdf$` hash
+2. Pasted the hash into the **Password Cracker** tool
+3. Ran the built-in 100-word list against it
+4. Each candidate word was hashed and compared to the target hash until a match was found
+
+**Tools:** [Hash Calculator](https://networkwalks.com/hash-calculator/) · [Password Cracker](https://networkwalks.com/password-cracker/)
+
+![Hash calculator](screenshots/05-hash-calculator.png)
+*Encrypted PDF parsed locally, `$pdf$` hash extracted.*
+
+![Password cracker ready](screenshots/06-password-cracker-ready.png)
+*Hash loaded, built-in wordlist selected, ready to crack.*
+
+![Password cracker success](screenshots/07-password-cracker-success.png)
+*Match found — password recovered: `password1`.*
+
+---
+
+## 🔑 Key Takeaways
+
+- How a PDF's encryption hash is structured and how it's extracted for cracking
+- The difference between dictionary attacks and brute-force attacks
+- How quickly weak/common passwords (e.g. top-100 lists) fall to a basic dictionary attack
+- How a production tool like John the Ripper compares to a simplified educational equivalent built around the same principle
 
 ## 🎯 Outcome
 
-Both methods successfully cracked the target PDF password, reinforcing the importance of strong, unique passphrases and proper password hygiene.
-
-## 📸 Screenshots
-
-**Johnny settings — pointing to the John the Ripper executable**
-![Johnny settings](screenshots/01-johnny-settings.png)
-
-**Johnny — hash cracked, 100% complete (1/1)**
-![Johnny cracked](screenshots/02-johnny-cracked.png)
-
-**Captured flag #1 — "My Locked PDF1.pdf" unlocked**
-![Flag 1](screenshots/03-flag-pdf1.png)
-
-**Captured flag #2 — "My Locked PDF3.pdf" unlocked**
-![Flag 2](screenshots/04-flag-pdf3.png)
-
-**Networkwalks Hash Calculator — crackable `$pdf$` hash extracted locally**
-![Hash calculator](screenshots/05-hash-calculator.png)
-
-**Networkwalks Password Cracker — hash loaded, ready to run**
-![Password cracker ready](screenshots/06-password-cracker-ready.png)
-
-**Networkwalks Password Cracker — password cracked successfully (`password1`)**
-![Password cracker success](screenshots/07-password-cracker-success.png)
-
-> Create a `screenshots/` folder in the repo root and upload the 7 PNGs with the exact filenames above so the images render correctly.
+Both approaches successfully recovered the target password, reinforcing why long, unique passphrases (not dictionary words or common patterns) are essential for protecting sensitive files.
 
 ## 🙏 Acknowledgements
 
 - **Instructor:** Karim Wakas, CCE — for guidance throughout the internship
-- **Networkwalks Academy** — for sponsoring the internship and providing the lab tools
+- **Networkwalks Academy** — for sponsoring the internship and providing the lab environment and tools
 
 ---
 
